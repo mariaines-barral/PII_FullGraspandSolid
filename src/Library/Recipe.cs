@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Full_GRASP_And_SOLID
 {
-    public class Recipe
+    public class Recipe : PrintableRecipe
     {
         // Cambiado por OCP
         private IList<BaseStep> steps = new List<BaseStep>();
@@ -36,7 +36,7 @@ namespace Full_GRASP_And_SOLID
         }
 
         // Agregado por SRP
-        public string GetTextToPrint()
+        public override string GetTextToPrint()
         {
             string result = $"Receta de {this.FinalProduct.Description}:\n";
             foreach (BaseStep step in this.steps)
